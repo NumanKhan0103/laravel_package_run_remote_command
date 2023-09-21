@@ -2,8 +2,8 @@
 
 namespace Nexus\LaravelRemoteCommand\Commands;
 
-use Spatie\Ssh\Ssh;
 use Illuminate\Console\Command;
+use Spatie\Ssh\Ssh;
 
 class LaravelRemoteCommandCommand extends Command
 {
@@ -14,9 +14,9 @@ class LaravelRemoteCommandCommand extends Command
     public function handle(): int
     {
         $process = Ssh::create('user', 'example.com')
-                   ->onOutput(function($type, $line) {
-                       echo $line;
-                   })
-                   ->execute('your favorite command');
+            ->onOutput(function ($type, $line) {
+                echo $line;
+            })
+            ->execute('your favorite command');
     }
 }
