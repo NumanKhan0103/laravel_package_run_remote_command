@@ -2,18 +2,21 @@
 
 namespace Nexus\LaravelRemoteCommand\Commands;
 
+use Spatie\Ssh\Ssh;
 use Illuminate\Console\Command;
 
 class LaravelRemoteCommandCommand extends Command
 {
-    public $signature = 'laravel-remote-command';
+    public $signature = 'remote {command}';
 
-    public $description = 'My command';
+    public $description = 'Execute command on remote server';
 
     public function handle(): int
     {
-        $this->comment('All done');
-
-        return self::SUCCESS;
+        $process = Ssh::create('user', 'example.com')
+                   ->onOutput(function($type, $line) {
+                       echo $line;
+                   })
+                   ->execute('your favorite command');
     }
 }
