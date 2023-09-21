@@ -2,9 +2,9 @@
 
 namespace Nexus\LaravelRemoteCommand;
 
+use Nexus\LaravelRemoteCommand\Commands\LaravelRemoteCommandCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Nexus\LaravelRemoteCommand\Commands\LaravelRemoteCommandCommand;
 
 class LaravelRemoteCommandServiceProvider extends PackageServiceProvider
 {
